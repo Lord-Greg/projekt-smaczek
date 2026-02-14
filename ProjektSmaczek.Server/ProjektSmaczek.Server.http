@@ -1,0 +1,6 @@
+@ProjektSmaczek.Server_HostAddress = http://localhost:5279
+
+GET {{ProjektSmaczek.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
