@@ -3,7 +3,7 @@ using DbModel.Model;
 
 namespace DbModel.Models
 {
-	internal class FoodProductItem
+	public class FoodProductItem
 	{
 		public int Id { get; set; }
 		public FoodProduct FoodProduct {  get; set; }

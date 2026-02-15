@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using DbModel.Contexts;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+builder.Services.AddDbContext<FoodContext>(options =>
+  options.UseSqlServer(builder.Configuration.GetConnectionString("FoodContext")));
+
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 var app = builder.Build();
 
@@ -15,6 +23,20 @@ app.MapStaticAssets();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+}
+else
+{
+	app.UseDeveloperExceptionPage();
+	app.UseMigrationsEndPoint();
+}
+
+using (var scope = app.Services.CreateScope())
+{
+	var services = scope.ServiceProvider;
+
+	var context = services.GetRequiredService<FoodContext>();
+	context.Database.EnsureCreated();
+	// DbInitializer.Initialize(context);
 }
 
 app.UseHttpsRedirection();

@@ -1,6 +1,6 @@
 ﻿namespace DbModel.Models
 {
-	internal class FoodMixtureItem
+	public class FoodMixtureItem
 	{
 		public int Id { get; set; }
 		public FoodMixture FoodMixture { get; set; }

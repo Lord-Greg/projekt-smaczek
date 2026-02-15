@@ -3,7 +3,7 @@
 	/// <summary>
 	/// Describes food's phisical specification in term of its nutriment.
 	/// </summary>
-	internal enum FoodType
+	public enum FoodType
     {
         Snacks,
         DryFood,

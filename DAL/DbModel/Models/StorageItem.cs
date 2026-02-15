@@ -2,7 +2,7 @@
 
 namespace DbModel.Models
 {
-	internal class StorageItem
+	public class StorageItem
 	{
 		public int Id { get; set; }
 		public Storage Storage { get; set; }

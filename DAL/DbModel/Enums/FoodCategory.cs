@@ -1,6 +1,6 @@
 ﻿namespace DbModel.Enums
 {
-    internal enum ContainerType
+	public enum ContainerType
     {
         Can,
         Pack,
