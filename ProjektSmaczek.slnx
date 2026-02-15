@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/DAL/">
+    <Project Path="DAL/DbModel/DbModel.csproj" />
+  </Folder>
   <Project Path="projektsmaczek.client/projektsmaczek.client.esproj">
     <Build />
     <Deploy />
