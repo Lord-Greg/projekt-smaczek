@@ -1,8 +1,11 @@
-﻿namespace DbModel.Model
+﻿using DbModel.Models;
+
+namespace DbModel.Model
 {
     internal class Storage
 	{
         public int Id { get; set; }
         public string Name { get; set; }
+        public ICollection<StorageItem> Items { get; set; }
     }
 }
