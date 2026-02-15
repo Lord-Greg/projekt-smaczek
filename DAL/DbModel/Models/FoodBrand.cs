@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DbModel.Model
+﻿namespace DbModel.Model
 {
     internal class FoodBrand
     {
