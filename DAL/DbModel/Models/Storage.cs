@@ -6,6 +6,6 @@ namespace DbModel.Model
 	{
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<StorageItem> Items { get; set; }
+        public ICollection<StorageItem>? Items { get; set; }
     }
 }
