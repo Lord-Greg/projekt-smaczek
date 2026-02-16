@@ -8,6 +8,6 @@ namespace DbModel.Models
 		public int Id { get; set; }
 		public FoodProduct FoodProduct {  get; set; }
 		public ContainerType ContainerType { get; set; }
-		public decimal WeightInGram { get; set; }
+		public int WeightInGram { get; set; }
 	}
 }
