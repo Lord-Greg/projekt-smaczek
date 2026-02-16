@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using DbModel.Contexts;
+using DbModel.Initializers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,7 +37,7 @@ using (var scope = app.Services.CreateScope())
 
 	var context = services.GetRequiredService<FoodContext>();
 	context.Database.EnsureCreated();
-	// DbInitializer.Initialize(context);
+	DbInitializer.Initialize(context);
 }
 
 app.UseHttpsRedirection();
