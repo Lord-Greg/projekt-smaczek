@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
 	HeartOutlined,
 	BookOutlined,
@@ -12,7 +13,9 @@ const App: React.FC = () => {
 	return (
 		<Sider trigger={null} >
 			<div >
-				<h3>Projekt Smaczek</h3>
+				<h3>
+					<Link to="/" >Projekt Smaczek</Link>
+				</h3>
 			</div>
 			<Menu
 				theme="dark"
@@ -22,17 +25,17 @@ const App: React.FC = () => {
 					{
 						key: '1',
 						icon: <BookOutlined />,
-						label: 'Food catalog',
+						label: <Link to="/FoodCatalog" >Food catalog</Link>,
 					},
 					{
 						key: '2',
 						icon: <BankOutlined />,
-						label: 'My storage',
+						label: <Link to="/MyStorage">My storage</Link>,
 					},
 					{
 						key: '3',
 						icon: <HeartOutlined />,
-						label: 'Diet advisor',
+						label: <Link to="/DietAdvisor" >Diet advisor</Link>,
 					},
 				]}
 			/>
