@@ -10,6 +10,5 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\api\mappers\" />
-    <Folder Include="src\models\" />
   </ItemGroup>
 </Project>
