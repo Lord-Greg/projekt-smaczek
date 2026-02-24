@@ -1,4 +1,5 @@
-import { Layout } from "antd";
+import { Layout, Button } from "antd";
+import { Link } from 'react-router-dom';
 import FoodProductsTable from "./components/FoodProductsTable";
 
 const FoodCatalogPage: React.FC = () => {
@@ -6,6 +7,9 @@ const FoodCatalogPage: React.FC = () => {
 		<>
 			<Layout>
 				<FoodProductsTable />
+				<Link to="/FoodCatalog/AddProduct">
+					<Button type="primary" className="button-normal">Add new product</Button>
+				</Link>
 			</Layout>
 		</>
 	);
