@@ -1,15 +1,11 @@
-import { Layout, theme } from "antd";
-import FoodProductForm from "./components/FoodProductForm";
+import { Layout } from "antd";
+import FoodProductsTable from "./components/FoodProductsTable";
 
 const FoodCatalogPage: React.FC = () => {
-	const {
-		token: { colorBgContainer, borderRadiusLG },
-	} = theme.useToken();
-
 	return (
 		<>
 			<Layout>
-				<FoodProductForm />
+				<FoodProductsTable />
 			</Layout>
 		</>
 	);
