@@ -1,4 +1,4 @@
-import { FoodProduct } from "./FoodProduct"
+import type { FoodProduct } from "./FoodProduct"
 
 export interface FoodBrand {
     id: number;
