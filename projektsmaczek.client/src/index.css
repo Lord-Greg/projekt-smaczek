@@ -66,3 +66,12 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.full-page {
+    height: 100vh;
+    width: 100vw;
+}
+
+.button-normal {
+    width: 150px;
+}
