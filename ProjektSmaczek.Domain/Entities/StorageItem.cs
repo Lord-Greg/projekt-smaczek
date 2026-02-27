@@ -1,7 +1,6 @@
-﻿using DbModel.Model;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace DbModel.Models
+namespace ProjektSmaczek.Domain.Entities
 {
 	public class StorageItem
 	{

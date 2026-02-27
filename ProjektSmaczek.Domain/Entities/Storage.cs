@@ -1,6 +1,4 @@
-﻿using DbModel.Models;
-
-namespace DbModel.Model
+﻿namespace ProjektSmaczek.Domain.Entities
 {
 	public class Storage
 	{

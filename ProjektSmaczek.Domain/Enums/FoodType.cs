@@ -1,4 +1,4 @@
-﻿namespace DbModel.Enums
+﻿namespace ProjektSmaczek.Domain.Enums
 {
 	/// <summary>
 	/// Describes food's phisical specification in term of its nutriment.

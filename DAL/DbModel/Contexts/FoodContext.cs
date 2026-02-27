@@ -1,6 +1,5 @@
-﻿using DbModel.Model;
-using DbModel.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using ProjektSmaczek.Domain.Entities;
 
 namespace DbModel.Contexts
 {

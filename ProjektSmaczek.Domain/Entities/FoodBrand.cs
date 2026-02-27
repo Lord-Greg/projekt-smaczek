@@ -1,4 +1,4 @@
-﻿namespace DbModel.Model
+﻿namespace ProjektSmaczek.Domain.Entities
 {
     public class FoodBrand
     {

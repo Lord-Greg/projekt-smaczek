@@ -1,7 +1,6 @@
 ﻿using DbModel.Contexts;
-using DbModel.Model;
-using DbModel.Enums;
-using DbModel.Models;
+using ProjektSmaczek.Domain.Entities;
+using ProjektSmaczek.Domain.Enums;
 
 namespace DbModel.Initializers
 {

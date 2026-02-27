@@ -1,10 +1,10 @@
 <Solution>
-  <Folder Name="/DAL/">
-    <Project Path="DAL/DbModel/DbModel.csproj" />
-  </Folder>
-  <Project Path="projektsmaczek.client/projektsmaczek.client.esproj">
+  <Project Path="DAL/DbModel/ProjektSmaczek.Infrastructure.csproj" />
+  <Project Path="ProjektSmaczek.Application/ProjektSmaczek.Application.csproj" Id="c5540a64-e531-49ae-bb55-ef77180c2c4f" />
+  <Project Path="projektsmaczek.client/ProjektSmaczek.Frontend.esproj">
     <Build />
     <Deploy />
   </Project>
-  <Project Path="ProjektSmaczek.Server/ProjektSmaczek.Server.csproj" />
+  <Project Path="ProjektSmaczek.Domain/ProjektSmaczek.Domain.csproj" Id="54b621f3-34fa-4dad-b8d9-c0a7271a7f89" />
+  <Project Path="ProjektSmaczek.Server/ProjektSmaczek.Api.csproj" />
 </Solution>

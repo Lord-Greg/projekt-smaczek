@@ -1,4 +1,4 @@
-namespace DbModel.Enums
+namespace ProjektSmaczek.Domain.Enums
 {
     /// <summary>
     /// Describes types of containers for food product items.

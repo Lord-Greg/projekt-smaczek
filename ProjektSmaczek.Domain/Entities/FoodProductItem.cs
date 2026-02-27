@@ -1,7 +1,6 @@
-﻿using DbModel.Enums;
-using DbModel.Model;
+﻿using ProjektSmaczek.Domain.Enums;
 
-namespace DbModel.Models
+namespace ProjektSmaczek.Domain.Entities
 {
 	public class FoodProductItem
 	{
