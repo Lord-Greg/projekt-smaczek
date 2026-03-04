@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DbModel.Repositories
 {
-	internal class FoodProductRepository : IFoodProductRepository
+	public class FoodProductRepository : IFoodProductRepository
 	{
 		private FoodContext _dbContext;
 

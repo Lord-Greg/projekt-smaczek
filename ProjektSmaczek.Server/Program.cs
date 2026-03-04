@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using DbModel.Contexts;
 using DbModel.Initializers;
+using DbModel.Repositories;
+using DbModel.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,8 @@ builder.Services.AddDbContext<FoodContext>(options =>
   options.UseSqlServer(builder.Configuration.GetConnectionString("FoodContext")));
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddScoped<IFoodProductRepository, FoodProductRepository>();
 
 var app = builder.Build();
 
