@@ -1,4 +1,4 @@
-import { FoodProductDto } from "./FoodProductDto"
+import type { FoodProductDto } from "./FoodProductDto"
 import { ContainerTypeDto } from "./enums/ContainerTypeDto"
 
 export interface FoodProductItemDto {
