@@ -23,7 +23,7 @@ const dataSource = Array.from({ length: 3 }).map<FoodProduct>((_, i) => ({
 }));
 
 const expandColumns: TableColumnsType<FoodProductItem> = [
-    { title: 'Id', dataIndex: 'id', key: 'id', hidden: true },
+    { title: 'Key', dataIndex: 'key', key: 'key', hidden: true },
     { title: 'Container Type', dataIndex: 'containerType', key: 'containerType' },
     { title: 'Weight in Gram', dataIndex: 'weightInGram', key: 'weightInGram' },
 ];
@@ -33,7 +33,7 @@ const columns: TableColumnsType<FoodProduct> = [
     {
         title: 'Food Brand',
         dataIndex: 'foodBrand',
-        render: brand => brand.name
+        render: brand => brand?.name
     },
     { title: 'Name', dataIndex: 'name', key: 'name' },
     { title: 'Description', dataIndex: 'description', key: 'description' },
@@ -48,14 +48,21 @@ const expandedRowRender = () => (
     />
 );
 
-const FoodProductsTable: React.FC = () => (
+type FoodProductsTableProps = {
+    data: FoodProduct[];
+};
+
+function FoodProductsTable({ data }: FoodProductsTableProps): React.ReactNode {
+    return (
     <>
         <Table<FoodProduct>
             columns={columns}
             expandable={{ expandedRowRender }}
-            dataSource={dataSource}
+            // dataSource={dataSource}
+            dataSource={data}
         />
     </>
-);
+)
+};
 
 export default FoodProductsTable;
