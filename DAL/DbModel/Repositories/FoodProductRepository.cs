@@ -9,8 +9,9 @@ namespace DbModel.Repositories
 	{
 		private FoodContext _dbContext;
 
-		public FoodProductRepository() {
-			_dbContext = new FoodContext(new DbContextOptions<FoodContext>());
+		public FoodProductRepository(FoodContext dbContext)
+		{
+			_dbContext = dbContext;
 		}
 
 		public async Task<IEnumerable<FoodProduct>> GetAllAsync()
