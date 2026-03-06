@@ -19,7 +19,19 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddScoped<IFoodProductRepository, FoodProductRepository>();
 
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy("AllowReact",
+			policy => policy
+				.WithOrigins("https://localhost:53289")
+				.AllowAnyHeader()
+				.AllowAnyMethod()
+				);
+});
+
 var app = builder.Build();
+
+app.UseCors("AllowReact");
 
 app.UseDefaultFiles();
 app.MapStaticAssets();
@@ -27,7 +39,7 @@ app.MapStaticAssets();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+	app.MapOpenApi();
 }
 else
 {
