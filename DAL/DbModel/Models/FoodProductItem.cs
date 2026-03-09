@@ -1,5 +1,4 @@
 ﻿using DbModel.Enums;
-using DbModel.Model;
 
 namespace DbModel.Models
 {

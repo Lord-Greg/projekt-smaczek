@@ -1,6 +1,4 @@
-﻿using DbModel.Models;
-
-namespace DbModel.Model
+﻿namespace DbModel.Models
 {
 	public class Storage
 	{

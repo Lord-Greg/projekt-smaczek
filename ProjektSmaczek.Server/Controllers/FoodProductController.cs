@@ -1,4 +1,6 @@
-﻿using DbModel.Repositories.Interfaces;
+﻿using DbModel.Enums;
+using DbModel.Models;
+using DbModel.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using ProjektSmaczek.Server.DTO;
 
@@ -8,10 +10,31 @@ namespace ProjektSmaczek.Server.Controllers
 	[Route("api/[controller]")]
 	public class FoodProductController : ControllerBase
 	{
-		[HttpGet(Name = "GetAllFoodProducts")]
-		public async Task<IEnumerable<FoodProductDto>> GetAll(IFoodProductRepository foodProductRepository)
+		private readonly IFoodProductRepository _foodProductRepository;
+
+		public FoodProductController(IFoodProductRepository foodProductRepository)
 		{
-			var foodProductsResponse = await foodProductRepository.GetAllAsync();
+			_foodProductRepository = foodProductRepository;
+		}
+
+		[HttpPost]
+		public async Task<string?> Create(CreateFoodProductDto foodProduct, CancellationToken cancellationToken = default)
+		{
+			var newFoodProduct = new FoodProduct
+			{
+				Name = foodProduct.Name,
+				Description = foodProduct.Description,
+				FoodType = Enum.Parse<FoodType>(foodProduct.FoodType),
+				FoodBrand = new FoodBrand() { Id = foodProduct.FoodBrandId }
+			};
+
+			return (await _foodProductRepository.AddAsync(newFoodProduct, cancellationToken)).ErrorMessage;
+		}
+		
+		[HttpGet(Name = "GetAllFoodProducts")]
+		public async Task<IEnumerable<FoodProductDto>> GetAll(CancellationToken cancellationToken = default)
+		{
+			var foodProductsResponse = await _foodProductRepository.GetAllAsync(cancellationToken);
 
 			IEnumerable<FoodProductDto> resultFoodProducts;
 

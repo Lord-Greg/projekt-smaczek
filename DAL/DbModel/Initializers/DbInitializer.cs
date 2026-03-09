@@ -1,5 +1,4 @@
 ﻿using DbModel.Contexts;
-using DbModel.Model;
 using DbModel.Enums;
 using DbModel.Models;
 
