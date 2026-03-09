@@ -1,5 +1,5 @@
-import { FoodBrandDto } from "./FoodBrandDto"
-import { FoodProductItemDto } from "./FoodProductItemDto"
+import type { FoodBrandDto } from "./FoodBrandDto"
+import type { FoodProductItemDto } from "./FoodProductItemDto"
 import { FoodTypeDto } from "./enums/FoodTypeDto"
 
 export interface FoodProductDto {

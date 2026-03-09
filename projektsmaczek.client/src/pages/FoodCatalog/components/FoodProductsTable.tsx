@@ -1,29 +1,11 @@
 import React from 'react';
 import { Table } from 'antd';
-import { FoodType } from '@/models/enums/FoodType';
-import { ContainerType } from '@/models/enums/ContainerType';
 import type { FoodProduct } from '@/models/FoodProduct';
 import type { FoodProductItem } from '@/models/FoodProductItem';
 import type { TableColumnsType } from 'antd';
 
-const expandDataSource = Array.from({ length: 3 }).map<FoodProductItem>((_, i) => ({
-    key: i.toString(),
-    id: i,
-    containerType: ContainerType.Can,
-    weightInGram: 80
-}));
-
-const dataSource = Array.from({ length: 3 }).map<FoodProduct>((_, i) => ({
-    key: i.toString(),
-    id: i,
-    name: 'Felix As Good As It Looks',
-    description: 'Tasty wet food variety in trays',
-    foodType: FoodType.WetFood,
-    foodBrand: { id: 1, name: 'Felix' }
-}));
-
 const expandColumns: TableColumnsType<FoodProductItem> = [
-    { title: 'Id', dataIndex: 'id', key: 'id', hidden: true },
+    { title: 'Key', dataIndex: 'key', key: 'key', hidden: true },
     { title: 'Container Type', dataIndex: 'containerType', key: 'containerType' },
     { title: 'Weight in Gram', dataIndex: 'weightInGram', key: 'weightInGram' },
 ];
@@ -33,29 +15,35 @@ const columns: TableColumnsType<FoodProduct> = [
     {
         title: 'Food Brand',
         dataIndex: 'foodBrand',
-        render: brand => brand.name
+        render: brand => brand?.name
     },
     { title: 'Name', dataIndex: 'name', key: 'name' },
     { title: 'Description', dataIndex: 'description', key: 'description' },
     { title: 'Food Type', dataIndex: 'foodType', key: 'foodType' }
 ];
 
-const expandedRowRender = () => (
+const expandedRowRender = (record: FoodProduct) => (
     <Table<FoodProductItem>
         columns={expandColumns}
-        dataSource={expandDataSource}
+        dataSource={record.items}
         pagination={false}
     />
 );
 
-const FoodProductsTable: React.FC = () => (
+type FoodProductsTableProps = {
+    data: FoodProduct[];
+};
+
+function FoodProductsTable({ data }: FoodProductsTableProps): React.ReactNode {
+    return (
     <>
         <Table<FoodProduct>
             columns={columns}
             expandable={{ expandedRowRender }}
-            dataSource={dataSource}
+            dataSource={data}
         />
     </>
-);
+)
+};
 
 export default FoodProductsTable;

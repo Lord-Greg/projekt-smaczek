@@ -3,7 +3,7 @@ import type { FoodProductItem } from "./FoodProductItem"
 import { FoodType } from "./enums/FoodType"
 
 export interface FoodProduct {
-    id: number;
+    key: number;
     name: string;
     description: string | null;
     foodType: FoodType;

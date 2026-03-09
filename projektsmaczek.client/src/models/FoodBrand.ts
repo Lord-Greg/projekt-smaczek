@@ -1,7 +1,7 @@
 import type { FoodProduct } from "./FoodProduct"
 
 export interface FoodBrand {
-    id: number;
+    key: number;
     name: string;
     products: FoodProduct[] | null;
 }
