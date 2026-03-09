@@ -11,20 +11,32 @@ namespace ProjektSmaczek.Server.Controllers
 		[HttpGet(Name = "GetAllFoodProducts")]
 		public async Task<IEnumerable<FoodProductDto>> GetAll(IFoodProductRepository foodProductRepository)
 		{
-			var foodProducts = await foodProductRepository.GetAllAsync();
+			var foodProductsResponse = await foodProductRepository.GetAllAsync();
 
-			return foodProducts.Select(fp => new FoodProductDto(
-				fp.Id,
-				fp.Name,
-				fp.Description,
-				fp.FoodType.ToString(),
-				new FoodBrandDto(fp.FoodBrand.Id, fp.FoodBrand.Name),
-				fp.Items.Select(i => new FoodProductItemDto(
-					i.Id,
-					i.ContainerType.ToString(),
-					i.WeightInGram
-				)).ToList()
-			));
+			IEnumerable<FoodProductDto> resultFoodProducts;
+
+			if (foodProductsResponse.IsSuccess) {
+				resultFoodProducts = foodProductsResponse.Data.Select(fp => new FoodProductDto(
+					fp.Id,
+					fp.Name,
+					fp.Description,
+					fp.FoodType.ToString(),
+					new FoodBrandDto(fp.FoodBrand.Id, fp.FoodBrand.Name),
+					fp.Items.Select(i => new FoodProductItemDto(
+						i.Id,
+						i.ContainerType.ToString(),
+						i.WeightInGram
+					)).ToList()
+				));
+			}
+			else
+			{
+				resultFoodProducts = new List<FoodProductDto>();
+
+				// TODO: Error logger.
+			}
+
+			return resultFoodProducts;
 		}
 	}
 }
