@@ -1,6 +1,6 @@
 import type { FoodBrandDto } from "@/api/types/FoodBrandDto";
 import type { FoodBrand } from "@/models/FoodBrand";
-import { mapFoodProductsDtoToViewModel } from "./foodProductMapper";
+import { mapFoodProductsDtoToViewModel, mapFoodProductsViewModelToDto } from "./foodProductMapper";
 
 export const mapFoodBrandDtoToViewModel = (dto: FoodBrandDto | null): FoodBrand | null => {
   return dto ? {
@@ -12,3 +12,11 @@ export const mapFoodBrandDtoToViewModel = (dto: FoodBrandDto | null): FoodBrand 
 
 export const mapFoodBrandsDtoToViewModel = (dtoArray: FoodBrandDto[] | null): FoodBrand[] =>
 	dtoArray ? dtoArray.map(mapFoodBrandDtoToViewModel) : [];
+
+export const mapFoodBrandViewModelToDto = (viewModel: FoodBrand | null): FoodBrandDto | null => {
+	return viewModel ? {
+		key: viewModel.id,
+		name: viewModel.name,
+		products: mapFoodProductsViewModelToDto(viewModel.products)
+	} : null;
+};

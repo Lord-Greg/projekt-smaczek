@@ -8,5 +8,6 @@ export interface FoodProductDto {
     description: string | null;
     foodType: FoodTypeDto;
     foodBrand: FoodBrandDto;
+    foodBrandId: number;
     items: FoodProductItemDto[] | null;
 }

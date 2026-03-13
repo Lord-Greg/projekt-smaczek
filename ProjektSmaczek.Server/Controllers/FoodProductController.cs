@@ -18,6 +18,7 @@ namespace ProjektSmaczek.Server.Controllers
 		}
 
 		[HttpPost]
+		[Route("Create")]
 		public async Task<string?> Create(CreateFoodProductDto foodProduct, CancellationToken cancellationToken = default)
 		{
 			var newFoodProduct = new FoodProduct
@@ -25,7 +26,7 @@ namespace ProjektSmaczek.Server.Controllers
 				Name = foodProduct.Name,
 				Description = foodProduct.Description,
 				FoodType = Enum.Parse<FoodType>(foodProduct.FoodType),
-				FoodBrand = new FoodBrand() { Id = foodProduct.FoodBrandId }
+				FoodBrandId = foodProduct.FoodBrandId
 			};
 
 			return (await _foodProductRepository.AddAsync(newFoodProduct, cancellationToken)).ErrorMessage;
