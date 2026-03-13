@@ -1,7 +1,7 @@
 ﻿using DbModel.Enums;
-using DbModel.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DbModel.Model
+namespace DbModel.Models
 {
 	public class FoodProduct
     {
@@ -9,7 +9,9 @@ namespace DbModel.Model
         public string Name { get; set; }
         public string? Description { get; set; }
         public FoodType FoodType { get; set; }
+        public int FoodBrandId { get; set; }
+        [ForeignKey(nameof(FoodBrandId))]
         public FoodBrand FoodBrand { get; set; }
-        public ICollection<FoodProductItem>? Items { get; set; }
+		public ICollection<FoodProductItem>? Items { get; set; }
     }
 }

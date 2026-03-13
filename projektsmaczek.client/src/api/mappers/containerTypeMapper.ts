@@ -1,5 +1,6 @@
 import { ContainerType } from "@/models/enums/ContainerType";
 import type { ContainerTypeDto } from "@/api/types/enums/ContainerTypeDto";
+import { getRecordKeyByValue } from "@/utils/get-record-key-by-value";
 
 export const containerTypeMap: Record<ContainerTypeDto, ContainerType> = {
 	Can: ContainerType.Can,
@@ -13,4 +14,8 @@ export const containerTypeMap: Record<ContainerTypeDto, ContainerType> = {
 
 export const mapContainerTypeDtoToViewModel = (dto: ContainerTypeDto): ContainerType => {
     return containerTypeMap[dto];
+}
+
+export const mapContainerTypeViewModelToDto = (viewModel: ContainerType): ContainerTypeDto => {
+	return getRecordKeyByValue(containerTypeMap, viewModel);
 }

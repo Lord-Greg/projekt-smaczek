@@ -1,4 +1,4 @@
-﻿namespace DbModel.Model
+﻿namespace DbModel.Models
 {
     public class FoodBrand
     {

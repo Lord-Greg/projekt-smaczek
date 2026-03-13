@@ -1,5 +1,4 @@
-﻿using DbModel.Model;
-using DbModel.Models;
+﻿using DbModel.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DbModel.Contexts

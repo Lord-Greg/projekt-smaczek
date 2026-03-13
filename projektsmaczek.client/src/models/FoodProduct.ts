@@ -8,5 +8,6 @@ export interface FoodProduct {
     description: string | null;
     foodType: FoodType;
     foodBrand: FoodBrand;
+    foodBrandId: number;
     items: FoodProductItem[] | null;
 }
